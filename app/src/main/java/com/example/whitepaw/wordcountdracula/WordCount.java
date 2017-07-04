@@ -1,17 +1,17 @@
 package com.example.whitepaw.wordcountdracula;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class WordCount extends AppCompatActivity {
     EditText questionEditText;
-    Button countButton;
     WordCountMethod wordCount;
+    TextView answerText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,14 +19,17 @@ public class WordCount extends AppCompatActivity {
         setContentView(R.layout.activity_word_count);
         Log.d(getClass().toString(), "onCreate called");
 
+        answerText = (TextView) findViewById(R.id.answer_text);
+        questionEditText = (EditText) findViewById(R.id.EditText);
+
 
     }
 
     public void onButtonClicked(View Button) {
         wordCount = new WordCountMethod();
-        String question = questionEditText.getText().toString();
-        Log.d(getClass().toString(), "ButtonClicked was called");
-        Log.d(getClass().toString(), "The question asked was '" + question + "'");
+        String input = questionEditText.getText().toString();
+        int answer = wordCount.wordCounter(input);
+        answerText.setText(Integer.toString(answer));
     }
 
 }
