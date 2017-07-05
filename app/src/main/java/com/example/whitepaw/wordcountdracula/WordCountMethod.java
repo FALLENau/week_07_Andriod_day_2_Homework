@@ -11,3 +11,10 @@ public class WordCountMethod {
     }
 
 }
+
+//public class wordCounter{
+//    public int getCount(String text) {
+//        String[] wordArray = text.toLoverCase().split(" ");
+//        return wordArray.length;
+//    }
+//} //Note class example solution.

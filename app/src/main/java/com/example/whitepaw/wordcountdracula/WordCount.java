@@ -11,7 +11,9 @@ import android.widget.TextView;
 public class WordCount extends AppCompatActivity {
     EditText questionEditText;
     WordCountMethod wordCount;
-    TextView answerText;
+    TextView answerCountText;
+    WordCounterMethodExtended wordCountEtended;
+    TextView answerExtented;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +21,7 @@ public class WordCount extends AppCompatActivity {
         setContentView(R.layout.activity_word_count);
         Log.d(getClass().toString(), "onCreate called");
 
-        answerText = (TextView) findViewById(R.id.answer_text);
+        answerCountText = (TextView) findViewById(R.id.answer_text);
         questionEditText = (EditText) findViewById(R.id.EditText);
 
 
@@ -29,7 +31,14 @@ public class WordCount extends AppCompatActivity {
         wordCount = new WordCountMethod();
         String input = questionEditText.getText().toString();
         int answer = wordCount.wordCounter(input);
-        answerText.setText(Integer.toString(answer));
+        answerCountText.setText(Integer.toString(answer));
+    }
+
+    public void onButtonTwoClicked(View Button) {
+//        wordCountEtended = new WordCounterMethodExtended();
+//        String input = questionEditText.getText().toString();
+//        int answer = wordCountEtedned.wordCounter(input);
+//        answerExtented.setText(Integer.toString(answer));
     }
 
 }
